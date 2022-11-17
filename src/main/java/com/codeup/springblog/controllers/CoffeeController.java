@@ -1,5 +1,6 @@
 package com.codeup.springblog.controllers;
 import com.codeup.springblog.models.Coffee;
+import com.codeup.springblog.repositories.CoffeeRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,11 @@ import java.util.List;
 
 public class CoffeeController {
 
+    private final CoffeeRepository coffeeDao;
+    //DAO Data access object
+    public CoffeeController(CoffeeRepository coffeeDao){
+        this.coffeeDao = coffeeDao;
+    }
     @GetMapping
     public String coffee(){
         return "coffee";
@@ -28,6 +34,21 @@ public class CoffeeController {
         List<Coffee> selections = new ArrayList<>(List.of(selection, selection2));
         model.addAttribute("selections", selections);
         return "coffee";
+    }
+
+    @GetMapping("/all-coffees")
+    public String allCoffees(Model model){
+        List<Coffee> coffees = coffeeDao.findAll();
+        model.addAttribute("coffees", coffees);
+        return "all-coffees";
+    }
+
+    @GetMapping("/new")
+    public String addCoffeeForm(@RequestParam(name="roast") String roast,
+    @RequestParam(name="origin") String origin, @RequestParam (name="brand") String brand){
+        Coffee coffee = new Coffee(roast, origin, brand);
+        coffeeDao.save(coffee);
+        return "redirect:/all-coffees";
     }
 
     @PostMapping

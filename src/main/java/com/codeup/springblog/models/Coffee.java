@@ -1,13 +1,35 @@
 package com.codeup.springblog.models;
 
+import javax.persistence.*;
+
 // (POJO)Plain Ole Java Object
+@Entity
+@Table(name="coffees")
 public class Coffee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Column(nullable = false, length = 50)
+    //default null is allowed, VARCHAR default is 255
     private String roast;
+
+    @Column(nullable = false)
     private String origin;
 
+    @Column(nullable = false, length = 100)
     private String brand;
 
-    public Coffee() {
+    public Coffee(String roast, String origin, String brand) {
     }
 
     public Coffee(String brand) {
@@ -42,4 +64,6 @@ public class Coffee {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+
 }
