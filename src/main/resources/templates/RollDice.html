@@ -3,38 +3,20 @@
 <head th:replace="partials/partials.html :: head ('Dice')"></head>
 <body>
 <nav th:replace="partials/partials.html :: bootstrap-nav"></nav>
-<h1>Roll them dice</h1>
-<!--<h2 th:unless="${selections}">Select your favored roast:</h2>-->
-<!--<div th:if="${selections}"> &lt;!&ndash;    the if statement in the tag hides it from view until a selection is made&ndash;&gt;-->
-<!--  <p>You selected: <span th:text="${selections.get(0).roast}"></span> roast </p>-->
-<!--  <p>Here are some options for you:</p>-->
-<!--  <ul>-->
-<!--    <li th:each="selection : ${selections}">-->
-<!--      <p>-->
-<!--        <span th:text="${selection.brand}"></span>-->
-<!--        <span th:text="${selection.origin}"></span>-->
-<!--        <span th:text="${selection.roast}"></span> roast!-->
-<!--      </p>-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--  &lt;!&ndash;    <p>We have an amazing <span th:text="${selection.origin}"></span> <span th:text="${selection.roast}"</span> roast! </p>&ndash;&gt;-->
-<!--</div>-->
+<h1>Roll them dice bebe</h1>
+<h2>Guess the result</h2>
+<ul>
+    <li><a href="/roll-dice/1">1</a></li>
+    <li><a href="/roll-dice/2">2</a></li>
+    <li><a href="/roll-dice/3">3</a></li>
+    <li><a href="/roll-dice/4">4</a></li>
+    <li><a href="/roll-dice/5">5</a></li>
+    <li><a href="/roll-dice/6">6</a></li>
+</ul>
+<!--n is the guess number-->
+<p>You guessed <span th:text="${n}"></span> and the number rolled is a <span th:text="${roll}"></span></p>
 
-<!--<ul>-->
-<!--  <li><a href="/coffee/dark">Dark Roast</a></li>-->
-<!--  <li><a href="/coffee/medium">Medium Roast</a></li>-->
-<!--  <li><a href="/coffee/light">Light Roast</a></li>-->
-<!--</ul>-->
-
-<!--<div>-->
-<!--  <p>Want to sign up for our newsletter? Enter your email!</p>-->
-<!--  <form action="/coffee" method="post">-->
-<!--    <label for="email">Email:</label>-->
-<!--    <input type="email" name="email" id="email">-->
-<!--    <button type="submit">Sign up</button>-->
-<!--  </form>-->
-<!--  <p th:if="${email}">Thanks for signing up. We will email you at <span th:text="${email}"></span>!</p>-->
-<!--</div>-->
-
+<p th:if="${n == roll}">You guessed correctly!</p>
+<p th:if="${n != roll}">You guessed incorrectly.</p>
 </body>
 </html>

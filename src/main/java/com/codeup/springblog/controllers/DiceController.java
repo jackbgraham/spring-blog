@@ -1,25 +1,30 @@
+
 package com.codeup.springblog.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.management.relation.RelationNotFoundException;
+import java.util.Random;
 
 @Controller
+@RequestMapping("/roll-dice")
 public class DiceController {
 
-    @GetMapping("/roll-dice")
-    @ResponseBody
-    public String helloWorld() {
-        return "SNAKE EYES";
+    @GetMapping
+    public String rollDiceGuess(){
+        return "RollDice";
     }
-//
-//    @GetMapping("/hello/{name}")
-//    @ResponseBody
-//    public String sayHello(@PathVariable String name){
-//        return "Hello " + name + "!";
-//    }
 
-
-
+    @GetMapping("/{n}")
+    public String rollDiceReturn(@PathVariable Integer n, Model model){
+        Random rand = new Random();
+        int roll = rand.nextInt(6) + 1;
+        model.addAttribute("roll", roll);
+        model.addAttribute("n", n);
+        return "RollDice";
+    }
 }
