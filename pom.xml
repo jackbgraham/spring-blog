@@ -25,6 +25,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+<!--a 'starter', is basically a single, or multiple dependencies that allow us to
+use some piece of functionality in our project. Using Spring Boot starters lets us
+ensure the versions of all the dependencies we are using play nice together, and do
+not contain any conflicts.-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -14,9 +14,11 @@
     <li><a href="/roll-dice/6">6</a></li>
 </ul>
 <!--n is the guess number-->
-<p>You guessed <span th:text="${n}"></span> and the number rolled is a <span th:text="${roll}"></span></p>
-
-<p th:if="${n == roll}">You guessed correctly!</p>
-<p th:if="${n != roll}">You guessed incorrectly.</p>
+<div th:if="${n}">
+<!--    this if statement activates the div upon the existence of user guess "n"-->
+    <p>You guessed <span th:text="${n}"></span> and the number rolled is a <span th:text="${roll}"></span></p>
+    <p th:if="${n == roll}">You guessed correctly!</p>
+    <p th:if="${n != roll}">You guessed incorrectly.</p>
+</div>
 </body>
 </html>
