@@ -17,6 +17,7 @@ public class PostController {
     public String posts() {
         return "this is the posts page";
     }
+//    the response bodies generate the "views"
     @GetMapping("/posts/{id}")
     @ResponseBody
     public String postID(@PathVariable String id) {
