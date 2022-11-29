@@ -16,7 +16,7 @@ public class HelloController {
 
     @GetMapping("/hello/{name}")
     @ResponseBody
-    public String sayHello(@PathVariable String name){
+    public String sayHello(@PathVariable String name) {
         return "Hello " + name + "!";
     }
 }
