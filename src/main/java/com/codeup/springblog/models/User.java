@@ -1,6 +1,4 @@
-
-
-package com.codeup.weywotspringblog.models;
+package com.codeup.springblog.models;
 
 import javax.persistence.*;
 import java.util.List;
