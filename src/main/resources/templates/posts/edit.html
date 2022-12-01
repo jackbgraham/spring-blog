@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit a Post</title>
 </head>
 <body>
+<div sec:authorize="isAuthenticated()">
+    This content is only shown to authenticated users.
 
+    User ID: <span th:text="${#authentication.principal.id}"/>
+    Username: <span th:text="${#authentication.principal.username}"/>
+    Email: <span th:text="${#authentication.principal.email}"/>
+</div>
+
+<form th:action="@{|/posts/${id}/edit|}" method="post" th:object="${post}">
+    <label for="title">Title:</label>
+    <input type="text" th:field="*{title}" id="title">
+    <br><br>
+    <label for="body">Body:</label>
+    <textarea th:field="*{body}" id="body" rows="10" cols="32"></textarea>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
