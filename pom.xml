@@ -25,11 +25,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-<!--a 'starter', is basically a single, or multiple dependencies that allow us to
-use some piece of functionality in our project. Using Spring Boot starters lets us
-ensure the versions of all the dependencies we are using play nice together, and do
-not contain any conflicts.-->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -46,6 +41,10 @@ not contain any conflicts.-->
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
@@ -58,19 +57,12 @@ not contain any conflicts.-->
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.7.5</version>
             </plugin>
         </plugins>
     </build>
