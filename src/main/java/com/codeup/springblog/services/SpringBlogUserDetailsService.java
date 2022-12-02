@@ -23,7 +23,7 @@ public class SpringBlogUserDetailsService implements UserDetailsService {
         if (user == null){
             throw new UsernameNotFoundException("User details not found for user: " + username);
         } else {
-            return new SpringBlogUserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
+            return (UserDetails) new SpringBlogUserDetails(user.getId(), user.getUsername(), user.getEmail(), user.getPassword());
         }
     }
 }

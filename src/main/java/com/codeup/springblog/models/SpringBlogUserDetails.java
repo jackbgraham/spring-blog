@@ -6,4 +6,6 @@ package com.codeup.springblog.models;
 
 
 public class SpringBlogUserDetails {
+    public SpringBlogUserDetails(long id, String username, String email, String password) {
+    }
 }
