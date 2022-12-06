@@ -1,5 +1,6 @@
 /* Add a black background color to the top navigation */
 .navbar {
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,10 +12,9 @@
     /*overflow: hidden;*/
     font-family: 'Kdam Thmor Pro', sans-serif;
     display: flex;
-    /*flex-wrap: wrap;*/
-    /*align-content: center;*/
-
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 30px;
 }
+
 .internal-navbar {
     display: flex;
     justify-content: space-between;
@@ -38,9 +38,7 @@
 }
 
 body {
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*align-content: center;*/
+    z-index: 1;
     -webkit-text-stroke: 0.5px #37ff00;
     font-family: 'Kdam Thmor Pro', sans-serif;
     background: rgb(0,0,0);
@@ -70,28 +68,32 @@ body {
     text-align: center;
 }
 
+.flipped {
+    transform: rotate(180deg);
+}
+
 .postcontainer {
-    margin-top: 50px;
-    margin-left: 50px;
-    margin-right: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 50px;
     list-style-type: none;
 }
+
 .posts {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*margin-top: 30px;*/
-    /*margin-left: 65px;*/
-    /*margin-right: 65px;*/
+    transform: rotate(-180deg);
     padding: 15px;
     width: 90%;
     border: 3px solid green;
     border-radius: 25px;
-    background: rgb(73,109,70);
-    background: radial-gradient(circle, rgba(73,109,70,1) 0%, rgba(53,65,49,1) 100%);
-    color: #37ff00;
+    background: rgb(93, 100, 93);
+    /*background: radial-gradient(circle, rgba(73,109,70,1) 0%, rgba(53,65,49,1) 100%);*/
+    color: #64e742;
     -webkit-text-stroke: 0.2px #090000;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+button {
+    border-radius: 10px;
+    -webkit-text-stroke: 0.2px #090000;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    background: rgb(100, 231, 66);
+    /*box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;*/
 }
