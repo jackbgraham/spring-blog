@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
-<head>
+<head th:replace="partials/partials.html :: head ('Posts')">
   <meta charset="UTF-8">
   <title>All Posts</title>
+<!--  http://localhost:8080/posts-->
 </head>
 <body>
-<h1>Your feed:</h1>
-<ul th:each="post : ${allPosts}">
+<nav th:replace="partials/partials.html :: nav"></nav>
+<h1 class="tmarg">Your feed:</h1>
+<br>
+<ul th:each="post : ${allPosts}" class="posts">
   <li>
     <h2 th:text="${post.title}"></h2>
     <p th:text="${post.body}"></p>
     <p th:if="${post.user.id} == ${#authentication.principal.id}">
       <button th:data-id="${post.id}" class="editButton">Edit</button>
+      <button th:data-id="${post.id}" class="deleteButton">Delete</button>
     </p>
 
   </li>
 </ul>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="/js/edit.js"></script>
+<script src="/js/delete.js"></script>
 </body>
 </html>

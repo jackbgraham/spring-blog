@@ -52,6 +52,10 @@ public class Post {
         this.user = user;
     }
 
+//    public void deletePost(String id) {
+//        posts.removeIf(p -> p.getId().equals(id));
+//    }
+
     public Post() {
     }
 
@@ -71,4 +75,5 @@ public class Post {
         this.body = body;
         this.user = user;
     }
+
 }

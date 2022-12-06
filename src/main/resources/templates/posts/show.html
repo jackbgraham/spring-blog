@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
+<head th:replace="partials/partials.html :: head ('Show')">
     <meta charset="UTF-8">
     <title>Show One Post</title>
 </head>
 <body>
-  <div th:if="${post}">
+<nav th:replace="partials/partials.html :: nav"></nav>
+  <div th:if="${post}" >
       <h2 th:text="${post.title}"></h2>
       <p th:text="${post.body}"></p>
       <p th:text="${post.user.email}"></p>

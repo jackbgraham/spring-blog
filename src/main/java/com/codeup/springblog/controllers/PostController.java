@@ -5,6 +5,7 @@ import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostsRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import com.codeup.springblog.services.EmailService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,4 +74,39 @@ public class PostController{
         postsDao.save(post);
         return "redirect:/posts";
     }
+
+    @GetMapping("/{id}/delete")
+    public String deletePost(@PathVariable long id) {
+        System.out.println("Inside deletePost");
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.printf("User: %s%n", user.getUsername());
+        Post post = postsDao.findById(id);
+        long UserId = user.getId();
+        long PostUserId = post.getUser().getId();
+        if (UserId == PostUserId) {
+            System.out.println("UserId and PostUserId are equal");
+            postsDao.delete(post);
+        }
+        return "redirect:/posts";
+    }
+//    @RequestMapping(value = "/posts/{id}", method = RequestMethod.DELETE)
+//    public void deletePost(@PathVariable String id) {
+//        postService.deletePost(id);
+//    }
+
+
+//    does this go here?
+//    @Value("${file-upload-path}")
+//    private String uploadPath;
+
+//    @GetMapping("/fileupload")
+//    public String fileuploadPost(Model model) {
+//        model.addAttribute("post", new Post());
+//        return "/posts/fileupload";
+//    }
+//
+//    @PostMapping("/fileupload")
+//    public String submitPost(@ModelAttribute Post post) {
+//
+//    }
 }
