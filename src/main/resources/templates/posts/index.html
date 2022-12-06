@@ -17,8 +17,8 @@
         <h2 th:text="${post.title}"></h2>
         <p th:text="${post.body}"></p>
         <br>
-        <span>created by user </span><span th:text="${post.user.id}"></span>
-
+        <span>created by user </span>
+        <span th:text="${post.user.username}"></span>
         <p th:if="${post.user.id} == ${#authentication.principal.id}">
           <button th:data-id="${post.id}" class="editButton">Edit</button>
           <button th:data-id="${post.id}" class="deleteButton">Delete</button>
