@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+  <link rel="stylesheet" th:href="@{/css/stylesheet.css}">
+</head>
+<body>
+<div class="landercontainer">
+  <h1>You have been logged out</h1>
+</div>
+  <form name="logoutForm" method="post" th:hidden="true">
+<!--    th:action="@{/logout}"-->
+    <input hidden type="submit" value="Sign Out"/>
+  </form>
+</div>
+</body>
+</html>

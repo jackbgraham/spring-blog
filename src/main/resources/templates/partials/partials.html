@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head th:fragment="head (title)">
     <meta charset="UTF-8">
     <title th:text="${title}">Partials</title>
@@ -23,8 +23,15 @@
         <a href="http://localhost:8080/posts/create">Create</a>
         <a href="http://localhost:8080/roll-dice">Dice</a>
         <a href="http://localhost:8080/fileupload">Upload</a>
-        <a href="####">Logout</a>
+<!--        <a href="http://localhost:8080/logout">Logout</a>-->
+        <div sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" th:method="post" class="logoutForm">
+                <a href="http://localhost:8080/logout" class="logoutButton">Logout</a>
+            </form>
+        </div>
+        <!--        class="logoutButton"-->
     </div>
 </div>
+<!--<script src="/js/logout.js"></script>-->
 </body>
 </html>
